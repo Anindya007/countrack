@@ -1,7 +1,11 @@
 countrack
 =========
 
-A JavaScript application to track your activities anonymously. You can access it: [countrack.me](http://veerasundar.com/app/countrack/).
+A Fork of the JavaScript application to track your activities anonymously implemented using React.
+
+****************Work in Progress************************
+
+You can access the original app: [countrack.me](http://veerasundar.com/app/countrack/).
 
 Here's the application screenshot.
 
