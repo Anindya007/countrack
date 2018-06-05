@@ -3,7 +3,7 @@ countrack
 
 A Fork of the BackboneJS application countrack(made by <a href="https://github.com/vraa">Veera</a>) to track your activities anonymously implemented using React.
 
-****************Work in Progress************************
+<h3>Work in Progress</h3>
 
 You can access the original app: [countrack.me](http://veerasundar.com/app/countrack/).
 
