@@ -1,7 +1,7 @@
 countrack
 =========
 
-A Fork of the JavaScript application to track your activities anonymously implemented using React.
+A Fork of the BackboneJS application countrack(made by <a href="https://github.com/vraa">Veera</a>) to track your activities anonymously implemented using React.
 
 ****************Work in Progress************************
 
