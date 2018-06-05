@@ -1,0 +1,413 @@
+.container:before,
+.container:after {
+    content:"";
+    display:table;
+}
+.container:after {
+    clear:both;
+}
+.hide{
+  display: none;
+}
+
+a[class*='button-']{
+  text-decoration: none;
+  background-color:#ecf0f1; 
+  border-bottom: 3px solid #bdc3c7;
+  border-radius: 2px;
+  padding: .2em .5em;
+  color: purple;
+
+  -webkit-transition: text-shadow .3s;
+  -moz-transition: text-shadow .3s;
+  transition : text-shadow .3s;
+}
+  a.button-green{
+    background-color: #1abc9c;
+    border-color: #27ae60;
+    color: #fff;
+  }
+  a.button-purple{
+    background-color: #9b59b6;
+    border-color: #8e44ad;
+    color: #fff;
+  }
+  a.button-orange{
+    background-color: #e67e22;
+    border-color: #d35400;
+    color: #fff;
+  }
+  a[class*='button-']:hover{
+    text-shadow:0 0 10px #fff;
+  }
+em{
+  font-style: normal;
+}
+
+.app{
+  font: .9em Tahoma;
+  width: 95%;
+  max-width: 400px;
+  color: #333;
+  margin:0 auto;
+  padding: .5em;
+  position: relative;
+}
+
+  .app > header:first-child{
+    overflow: hidden;
+    padding: .5em;
+  }
+  h1.brand{
+    font-size: 1rem;
+    margin: 0;
+    text-transform: uppercase;
+    color: purple;
+    float: left;
+  }
+    h1.brand span{
+      opacity: .5;
+      text-transform: lowercase;
+    }
+    .menu-icon{
+      float: right;
+      font-size: .8rem;
+    }
+   
+  .io{
+    margin: 1em 0;
+  }
+    .io #addActivity{
+      font-size: 1rem;
+    }
+    .io.action-mode form{
+      display: none;
+    }
+    .io.form-mode #addActivity{
+      display: none;
+    }
+    .io a#addActivity{
+      display: block;
+      text-align: center;
+      padding: .5em;
+    }
+    .io form input[type="text"]{
+      border: 1px solid purple;
+      border-radius: 2px;
+      padding: .2em;
+      width: 65%;
+    }
+      .io form a[class*='button-']{
+        margin-right: 1em;
+      }
+      .io form a[class*='button-']:last-child{
+        margin-right: 0;
+      }
+      .io form label[for="nature"]{
+        font-size: .8rem;
+        margin: 0 .5em;
+      }
+      .io .icons{
+        font-size: 1.5em;
+        color: purple;
+        margin:1em 0;
+      }
+        .icons [class*='icon-']{
+          display: inline-block;
+          padding: .2em;
+          margin:.11em;
+          border-radius: 3px;
+          line-height: 1em;
+          cursor: pointer;
+          border:1px solid #fff;
+        }
+        .icons .selected, .icons [class*='icon-']:hover{
+          border-color: purple;
+        }
+      .io .actions{
+        margin-left: 1em;
+      }
+
+  .activity-list .activity{
+    background-color: #ecf0f1;
+    padding: .5em .4em;
+    margin: .5em 0;
+    color: #34495e;
+    border-radius: 2px;
+    border:1px solid #eee;
+    text-shadow:0 0 1px #ecf0f1;
+    font-size: 1.5em;
+  }
+    .activity .data p, .activity .count p{
+      margin-top: 0;
+      font-family: Tahoma;
+    }
+    .activity .data{
+      float: left;
+      width: 50%;
+      margin-right: .5em;
+      color: #800080;
+    }
+      .data.iconed p{
+        margin-left: 35px;
+      }
+      .data [class*='icon-']{
+        float: left;
+      }
+    .activity .count{
+      float: left;
+      width: 25%;
+      font-size: 1.2em;
+      color: #34495e;
+    }
+       .activity .count p{
+        padding: 0;
+        margin: 0;
+       }
+      .activity .count p.today{
+        float: left;
+        width: 45%;
+        color: #800080;
+        text-align: right;
+      }
+      .activity .count p.total{
+        float: right;
+        width: 45%;
+        color: #CE9DCE;
+        text-align: left;
+        font-size: .8em;
+        border-left: 1px solid #CE9DCE;
+        padding-left: .2em;
+      }
+        .activity .count .total em{
+          font-size: .8em;
+        }
+        .activity .count label{
+          font-size: .4em;
+          margin: 0;
+          padding: 0;
+          display: block;
+          text-transform: uppercase;
+        }
+    .activity .controls{
+      float: right;
+    }
+      .activity .controls a{
+        text-decoration: none;
+      }
+    .activity .more{
+      display: none;
+      text-align: center;
+    }
+      .activity.expanded .more{
+        display: block;
+      }
+      .more .buttons{
+      margin:2em 0 .5em 0;
+      font-size: .7em;
+    }
+
+    .activity .graph{
+      clear: both;
+      font-size: .21rem;
+      text-align: left;
+    }
+    .graph .cell{
+      display: inline-block;
+      background-color: #fafafa;
+      height: 8px;
+      width: 8px;
+      border-radius: 2px;
+      padding: 0;
+      margin: 0;
+      letter-spacing: 0;
+    }
+    .cell.empty{
+      background-color: #fafafa;
+      opacity: .8;
+    }
+      .good .cell.low, .good.cell.low{
+        background-color: #d6e685;
+      }
+      .good .cell.medium, .good.cell.medium{
+        background-color: #8cc665;
+      }
+      .good .cell.high, .good.cell.high{
+        background-color: #44a340;
+      }
+      .good .cell.insane, .good.cell.insane{
+        background-color: #1e6823;
+      }
+      .bad .cell.low, .bad.cell.low{
+        background-color: #EDB5B0;
+      }
+      .bad .cell.medium, .bad.cell.medium{
+        background-color: #DF7B71;
+      }
+      .bad .cell.high, .bad.cell.high{
+        background-color: #DA685C;
+      }
+      .bad .cell.insane, .bad.cell.insane{
+        background-color: #C0382B;
+      }
+  .day.graph{
+    border: 1px solid #fafafa;
+    padding: .5em;
+    border-radius: 2px;
+  }
+    .day.graph label{
+      display: block;
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: .6rem;
+    }
+.intro{
+  color: purple;
+  text-align: center;
+}
+  .intro h1{
+    font-size: 1.5rem;
+    font-weight: normal;
+  }
+  .intro h2{
+    font-weight: normal;
+    font-size: 1.1rem;
+  }
+  .inro .steps{
+    font-size: .8rem;
+  }
+    .intro .steps em{
+      background-color: #000;
+      border-radius: 50%;
+      display: inline-block;
+      padding: .2rem .4rem;
+    }
+  .intro .highlights{
+    width: 100%;
+    margin: 2em 0 1em 0;
+  }
+    .highlights td{
+      background-color: #9B59B6;
+      color: #fff;
+      padding: .5rem;
+    }
+    .highlights tr:nth-child(odd) td:nth-child(even), .highlights tr:nth-child(even) td:nth-child(odd){
+      background-color: #8E44AD;
+    }
+    .highlights a{
+      color: #fff;
+    }
+    .highlights td i{
+      font-size: 1.7rem;
+      text-shadow: 0 0 2px #ff0;
+    }
+  .intro footer{
+    color: #aaa;
+    font-size: .8rem;
+    text-align: left;
+  }
+    .intro footer a{
+      color: #888;
+    }
+    
+.menu{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.32rem;
+  padding: 1em;
+}
+  .menu .mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000; 
+    opacity: .9;
+    z-index: 900;
+  }
+  .menu ul{
+    z-index: 1000;
+    position: relative;
+    list-style: none;
+    padding: 0;
+  }
+    .menu li{
+      margin: 1em 0;
+    }
+      .menu li a{
+        display: block;
+      }
+      .menu li strong{
+        display: block;
+        font-weight: normal;
+      }
+      .menu li span{
+        font-size: .8rem;
+      }
+      .menu li.footer{
+        color: #fff;
+        font-size: 1rem;
+        text-shadow:0 0 2px #fff;
+        font-weight: normal;
+      }
+        .menu li.footer a{
+          display: inline;
+          color: #fff;
+        }
+  .menu .firebase-config{
+    display: block;
+    background-color: #fafafa;
+    padding: 1em;
+    text-align: left;
+    font-size: 1rem;
+  }
+    .menu .firebase-config [type='text']{
+      display: block;
+      width: 90%;
+      margin-bottom: .5em;
+    }
+    .menu li.firebase-config a{
+      display: inline-block;
+      font-size: .8em;
+    }
+    .firebase-config p{
+      padding: .1em 0;
+      margin: 0;
+    }
+    .firebase-config label, .firebase-config small.help{
+      display: block;
+    }
+    .firebase-config label span{
+      font-size: 1rem;
+    }
+    .firebase-config small.help{
+      color: #aaa;
+    }
+      .firebase-config small.help em{
+        color: #666;
+      }
+    .firebase-config p.note{
+      font-size: .8rem;
+      color: #999;
+      margin: .5em 0;
+      line-height: 1.1rem;
+    }
+      .firebase-config p.note a{
+        font-size: .8rem;
+      }
+      .firebase-config p.note strong{
+        background-color: #ffffaf;
+        font-weight: bold;
+        color: #666;
+        display: inline;
+      }
+
+  .menu .ajax-progress{
+    background: #9B59B6 url(../img/ajax-loader.gif) no-repeat center center;
+    color: #9B59B6;
+    text-shadow:none!important;
+  }
