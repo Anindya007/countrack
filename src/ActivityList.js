@@ -1,30 +1,78 @@
 import React, { Component } from 'react';
-let randomIdGenerator = require('random-id-generator');
 
+
+import Records from './records';
+import _ from './utility';
+//let randomIdGenerator = require('random-id-generator');
+
+const createActivityModel = (activity)  => {
+		
+		debugger;
+		
+		 _.merge(activity,{id:'ct-'+_.guid(),records:new Records(new Date()),created:new Date(),updated:new Date()});
+	
+		return activity;
+	}
 
 export default class ActivityList extends Component{
 
 constructor(props){
 super(props);
 }	
-state={activityList:[]};
+state={activityList:[],persist:false};
 
-persistActivity(list){
+persistActivity(){
 	//If i don't call the slice the list object passed by the caller gets changed and gives an empty array
-	window.localStorage.setItem(randomIdGenerator(), JSON.stringify(list.slice().pop()));
+	debugger;
+	let activity = this.state.activityList.slice().pop();
+	window.localStorage.setItem(activity.id, JSON.stringify(activity));
 }
 
+componentWillReceiveProps(newProps){
+	//debugger;
+	
+		
+	if(!(_.isEqual(newProps.activity,this.props.activity)))
+	{
+		let activity = createActivityModel(newProps.activity);	
+		let newActivityList = [...this.state.activityList,activity];
+		this.setState({activityList:newActivityList,persist:true});	
+	}
+	else
+		this.setState({persist:false});
 
+	
+	
+	}
+
+
+
+componentDidMount(){
+		
+		let activityList = [];
+		
+		for(let key in localStorage){
+			let item = JSON.parse(localStorage.getItem(key));
+			//debugger;
+			if(key.indexOf('ct-') === 0)
+				activityList.push(item);
+		}
+		
+		if(activityList.length != 0)
+			this.setState({activityList:activityList});
+	}
 
 render(){
 	
-	let activityList = this.props.activityList;
+	let activityList = this.state.activityList;
 	
 	console.log(activityList);
 	
-	if(activityList.length !== 0)
+	//debugger;
+	
+	if(activityList.length != 0 && this.state.persist)
 	{
-	this.persistActivity(activityList);
+	this.persistActivity();
 	}
 	
 	let list = activityList.map(({name,nature,icon},index) =>{

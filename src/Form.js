@@ -35,6 +35,7 @@ export default class Form extends Component{
 	}
 	
 	handleChecked(e){
+		debugger;
 		let nature = e.target.checked?'Good':'Bad';
 		this.setState({nature:nature});
 		//console.log(this.state.nature);
@@ -64,15 +65,17 @@ export default class Form extends Component{
 		
 		this.props.showActivityList(activity);
 		
-		this.resetActivityForm();
+		
 		this.hideActivityForm();
 	}
 	
 	hideActivityForm(e){
+		this.resetActivityForm();
 		this.props.hideMode(false);
 	}
 	
 	resetActivityForm(){
+		debugger;
 		let  icon_names = this.state.icon_names.slice();
 		
 		let selected_class;
@@ -81,9 +84,11 @@ export default class Form extends Component{
 								selected_class = e;
 		}	
 						)
-		
+		if(selected_class)
+		{
 		icon_names[icon_names.indexOf(selected_class)] = selected_class.split(" ")[0];
-		this.setState({name:"",icon_names:icon_names});
+		}
+		this.setState({name:"",nature:"Good",icon_names:icon_names});
 	}
 	
   render(){	
@@ -95,8 +100,8 @@ export default class Form extends Component{
       <form>
           <section className='row'>
             <input type="text" placeholder="Name (e.g. Workout)" name="activityName"  onChange={(e) => {this.handleInput(e)}} value={this.state.name}></input>
-            <label for="nature"><input type="checkbox" defaultChecked="checked" id="nature" name="nature" onChange={(e) => {this.handleChecked(e)}} 
-			></input> Good </label>
+            <label for="nature"><input type="checkbox"  id="nature" name="nature" onChange={(e) => {this.handleChecked(e)}} 
+			checked={ this.state.nature==='Good'}></input> Good </label>
           </section>
           <section className='row' >
             <div className="icons" >

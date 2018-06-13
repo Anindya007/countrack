@@ -9,7 +9,7 @@ export default class GlobalContainer extends Component{
 		super(props);
 	}*/
 
-	state={mode:false,activityList:[]};
+	state={mode:false,activity:{}};
 	
 	showActivityForm(e){
 		e.preventDefault;
@@ -18,22 +18,23 @@ export default class GlobalContainer extends Component{
 	
 	showActivityList(activity){
 		
-		let newActivityList = [...this.state.activityList,activity];
+		//let newActivityList = [...this.state.activityList,activity];
 		
-		this.setState({activityList:newActivityList});
+		this.setState({activity});
 	}
 	
 	hideMode(val){
 		this.setState({mode:val});
 	}
 	
+		
 	render(){
 		
 		this.state.activityList;
 		return(<div>
 						<Form showActivityForm={this.showActivityForm.bind(this)} mode={this.state.mode}  showActivityList={this.showActivityList.bind(this)} 
 									hideMode = {this.hideMode.bind(this)}></Form>
-						<ActivityList  activityList={this.state.activityList}></ActivityList>
+						<ActivityList  activity={this.state.activity}></ActivityList>
 						</div>
 						)
 	}
